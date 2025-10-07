@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="style.css?v=2.4">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login/Signup Container -->
+    <div id="auth-container" class="container">
+        <div class="form-container">
+            <div class="toggle-buttons">
+                <button id="login-toggle" class="toggle-btn active">Login</button>
+                <button id="signup-toggle" class="toggle-btn">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <h2>Student Login</h2>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="login-name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form">
+                <h2>Create Account</h2>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signup-name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="student-number" placeholder="Student Number" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-graduation-cap"></i>
+                    <select id="course" required>
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="BS Information Technology">BS Information Technology</option>
+                        <option value="BS Computer Science">BS Computer Science</option>
+                        <option value="BS Business Administration">BS Business Administration</option>
+                        <option value="BS Education">BS Education</option>
+                        <option value="BS Nursing">BS Nursing</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-calendar"></i>
+                    <select id="year" required>
+                        <option value="" disabled selected>Select Year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Portal (Initially Hidden) -->
+    <div id="portal" class="hidden">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Student Portal</span>
+                </div>
+                <div class="theme-selector">
+                    <button id="light-theme" class="theme-btn active" title="Light Theme">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button id="dark-theme" class="theme-btn" title="Dark Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="cool-theme" class="theme-btn" title="Cool Theme">
+                        <i class="fas fa-snowflake"></i>
+                    </button>
+                </div>
+                <div class="user-info">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Sign Out</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-container">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-target="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-target="class-schedule"><i class="fas fa-calendar-alt"></i> Class Schedule</a></li>
+                    <li><a href="#" class="nav-link" data-target="grades"><i class="fas fa-chart-bar"></i> Grades</a></li>
+                    <li><a href="#" class="nav-link" data-target="student-ledger"><i class="fas fa-file-invoice-dollar"></i> Student Ledger</a></li>
+                    <li><a href="#" class="nav-link" data-target="student-record"><i class="fas fa-user-graduate"></i> Student Record</a></li>
+                </ul>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="content">
+                <!-- Dashboard -->
+                <section id="dashboard" class="content-section active">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-grid">
+                        <!-- Announcements Container -->
+                        <div class="card announcements">
+                            <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+                            <div class="announcement-list">
+                                <div class="announcement-item">
+                                    <h4>Midterm Examinations</h4>
+                                    <p>Midterm examinations will be held from October 15-20, 2025. Please check your schedule.</p>
+                                    <span class="date">October 5, 2025</span>
+                                </div>
+                                <div class="announcement-item">
+                                    <h4>Tuition Fee Due Date</h4>
+                                    <p>Last day to pay tuition balance is on October 30, 2025. Late payments will incur penalties.</p>
+                                    <span class="date">October 1, 2025</span>
+                                </div>
+                                <div class="announcement-item">
+                                    <h4>Registration for Next Semester</h4>
+                                    <p>Online registration for the next semester will open on November 15, 2025.</p>
+                                    <span class="date">September 28, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tuition Balance Container -->
+                        <div class="card balance">
+                            <h3><i class="fas fa-money-bill-wave"></i> Tuition Balance</h3>
+                            <div class="balance-info">
+                                <div class="balance-amount">
+                                    <span class="amount" id="current-balance">P5,000.00</span>
+                                    <span class="status outstanding">Outstanding Balance</span>
+                                </div>
+                                <div class="due-date">
+                                    <p>Due Date: <strong id="due-date-display">October 30, 2023</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Class Schedule -->
+                <section id="class-schedule" class="content-section">
+                    <h2>Class Schedule</h2>
+                    <div class="card">
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Units</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Room</th>
+                                    <th>Professor</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-body">
+                                <!-- Dynamic content will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Grades -->
+                <section id="grades" class="content-section">
+                    <h2>Grades</h2>
+                    <div class="card">
+                        <div class="grades-summary">
+                            <div class="gwa-container">
+                                <h3>General Weighted Average (GWA)</h3>
+                                <div class="gwa-value" id="gwa-display">1.45</div>
+                            </div>
+                        </div>
+                        <table class="grades-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Units</th>
+                                    <th>Prelim</th>
+                                    <th>Midterm</th>
+                                    <th>Final</th>
+                                    <th>Final Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody id="grades-body">
+                                <!-- Dynamic content will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Student Ledger -->
+                <section id="student-ledger" class="content-section">
+                    <h2>Student Ledger</h2>
+                    <div class="card">
+                        <div class="ledger-summary">
+                            <div class="summary-item">
+                                <span class="label">Total Amount</span>
+                                <span class="value" id="total-amount">P25,000.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Amount Paid</span>
+                                <span class="value" id="amount-paid">P15,000.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Balance</span>
+                                <span class="value outstanding" id="balance-amount">P10,000.00</span>
+                            </div>
+                        </div>
+                        
+                        <table class="ledger-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ledger-body">
+                                <!-- Dynamic content will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Student Record -->
+                <section id="student-record" class="content-section">
+                    <h2>Student Record</h2>
+                    <div class="card">
+                        <div class="student-info">
+                            <div class="info-row">
+                                <div class="info-item">
+                                    <span class="label">Name:</span>
+                                    <span class="value" id="record-name"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Student Number:</span>
+                                    <span class="value" id="record-student-number"></span>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-item">
+                                    <span class="label">Course:</span>
+                                    <span class="value" id="record-course"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Year:</span>
+                                    <span class="value" id="record-year"></span>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-item">
+                                    <span class="label">Email:</span>
+                                    <span class="value" id="record-email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <table class="record-table">
+                            <thead>
+                                <tr>
+                                    <th>Academic Year</th>
+                                    <th>Year</th>
+                                    <th>Semester</th>
+                                    <th>Status</th>
+                                    <th>Units</th>
+                                    <th>GWA</th>
+                                </tr>
+                            </thead>
+                            <tbody id="record-body">
+                                <!-- Dynamic content will be inserted here -->
+                            </tbody>
+                        </table>
+                        
+                        <!-- Documents Section within Student Record -->
+                        <div class="documents-section">
+                            <h3><i class="fas fa-folder"></i> Document Records</h3>
+                            <div class="documents-grid" id="documents-grid">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+<script src="script.js?v=2.4"></script>
+</body>
+</html>
